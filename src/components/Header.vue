@@ -57,7 +57,7 @@ const app = initializeApp(fbConfig)
 const db = getDatabase(app)
 
 const submitSuggestion = () => {
-	
+
 	btnDisabled.value = true
 
 	set(
@@ -144,7 +144,7 @@ onMounted(() => {
 					]"
 					ref="formWrapper"
 				>
-					<h2 class="form-title">
+					<h2 v-if="formOpen" class="form-title">
 						<span>Suggest item</span>
 						<button
 							class="close-icon"
@@ -174,42 +174,44 @@ onMounted(() => {
 					</div>
 
 					<template v-else>
-						<p>Suggest an item to be included in the Squash List</p>
-						<form @submit.prevent="submitSuggestion">
-							<label>
-								<span>Name <span class="required">*</span></span>
-								<input
-									v-model="form.name"
-									type="text"
-									name="name"
-									required
-									ref="nameInput"
-								>
-							</label>
-							<label>
-								<span>URL <span class="required">*</span></span>
-								<input
-									v-model="form.url"
-									type="text"
-									name="url"
-									required
-								>
-							</label>
-							<label>
-								<span>Description</span>
-								<input
-									v-model="form.desc"
-									type="text"
-									name="desc"
-								>
-							</label>
-							<button
-								type="submit"
-								:disabled="btnDisabled"
-							>
-								Submit
-							</button>
-						</form>
+                        <template v-if="formOpen">
+                            <p>Suggest an item to be included in the Squash List</p>
+                            <form @submit.prevent="submitSuggestion">
+                                <label>
+                                    <span>Name <span class="required">*</span></span>
+                                    <input
+                                        v-model="form.name"
+                                        type="text"
+                                        name="name"
+                                        required
+                                        ref="nameInput"
+                                    >
+                                </label>
+                                <label>
+                                    <span>URL <span class="required">*</span></span>
+                                    <input
+                                        v-model="form.url"
+                                        type="text"
+                                        name="url"
+                                        required
+                                    >
+                                </label>
+                                <label>
+                                    <span>Description</span>
+                                    <input
+                                        v-model="form.desc"
+                                        type="text"
+                                        name="desc"
+                                    >
+                                </label>
+                                <button
+                                    type="submit"
+                                    :disabled="btnDisabled"
+                                >
+                                    Submit
+                                </button>
+                            </form>
+                        </template>
 
 					</template>
 				</div>
