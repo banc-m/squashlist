@@ -1,5 +1,5 @@
 <template>
 	<footer class="footer">
-        <img src="//nuxmo.github.io/media/img/old-dude.jpg" alt="nuxmo logo" /> a <a href="/">Nuxmo</a> project
+        <img src="//banc-m.github.io/media/img/old-dude.jpg" alt="bancm logo" /> a <a href="/">bancm</a> project
 	</footer>
 </template>
